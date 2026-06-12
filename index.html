@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONAK Oil Seals — Custom Sealing Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Saira:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14171B;
+  --steel:#1F242B;
+  --steel-2:#2A313A;
+  --paper:#F4F5F7;
+  --line:#DDE1E6;
+  --line-dark:#39414C;
+  --orange:#F25C1A;
+  --orange-soft:#FF7A3D;
+  --amber:#FFB258;
+  --white:#FFFFFF;
+  --muted:#6B7480;
+  --muted-light:#9AA4B0;
+  --radius:14px;
+  --font-display:'Saira Condensed',sans-serif;
+  --font-body:'Saira',sans-serif;
+}
+html[lang="ar"]{
+  --font-display:'Tajawal',sans-serif;
+  --font-body:'Tajawal',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+
+/* ---------- typography ---------- */
+h1,h2,h3{font-family:var(--font-display);line-height:1.15;letter-spacing:.01em}
+html[lang="en"] h1,html[lang="en"] h2{text-transform:uppercase;letter-spacing:.03em}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:1rem;
+}
+html[lang="ar"] .eyebrow{letter-spacing:.05em;font-size:.85rem}
+.eyebrow::before{
+  content:"";width:14px;height:14px;border:3px solid var(--orange);border-radius:50%;
+}
+.section-title{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:700;margin-bottom:1.1rem}
+.section-sub{color:var(--muted);max-width:640px;font-size:1.05rem}
+
+/* ---------- layout ---------- */
+.wrap{width:min(1180px,92%);margin-inline:auto}
+section{padding:5.5rem 0}
+.dark{background:var(--ink);color:var(--white)}
+.dark .section-sub{color:var(--muted-light)}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,23,27,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-dark);
+  color:var(--white);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:var(--font-display);font-weight:700;font-size:1.5rem;letter-spacing:.06em}
+.logo svg{width:38px;height:38px}
+.logo span b{color:var(--orange)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{
+  font-size:.95rem;font-weight:500;color:#C9CFD7;position:relative;padding:.3rem 0;
+  transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;inset-inline-start:0;bottom:-4px;height:2px;width:0;
+  background:var(--orange);transition:width .25s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.lang-btn{
+  background:transparent;border:1.5px solid var(--line-dark);color:var(--white);
+  padding:.45rem 1rem;border-radius:999px;font-weight:600;font-size:.85rem;
+  transition:border-color .25s,background .25s;
+}
+.lang-btn:hover{border-color:var(--orange);background:rgba(242,92,26,.12)}
+.burger{display:none;background:none;border:none;color:var(--white);width:42px;height:42px}
+.burger svg{width:26px;height:26px}
+
+/* mobile nav */
+@media(max-width:880px){
+  .nav-links{
+    position:fixed;top:72px;inset-inline:0;background:var(--ink);
+    flex-direction:column;padding:1.5rem 0 2rem;gap:1.25rem;
+    border-bottom:1px solid var(--line-dark);
+    transform:translateY(-130%);transition:transform .3s ease;
+  }
+  .nav-links.open{transform:translateY(0)}
+  .burger{display:grid;place-items:center}
+}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;background:var(--ink);color:var(--white);
+  padding:7rem 0 6.5rem;overflow:hidden;
+}
+.hero::before{ /* industrial texture: diagonal hazard hairlines */
+  content:"";position:absolute;inset:0;opacity:.05;
+  background:repeating-linear-gradient(135deg,transparent 0 22px,var(--white) 22px 23px);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.5vw,4.2rem);font-weight:700;margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:1.15rem;color:var(--muted-light);max-width:540px;margin-bottom:2.2rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--orange);color:var(--white);border:none;
+  font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.06em;
+  padding:.95rem 2.2rem;border-radius:8px;
+  transition:transform .2s,box-shadow .2s,background .2s;
+}
+html[lang="en"] .btn{text-transform:uppercase}
+.btn:hover{background:var(--orange-soft);transform:translateY(-2px);box-shadow:0 10px 28px rgba(242,92,26,.35)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line-dark);box-shadow:none}
+.btn.ghost:hover{border-color:var(--orange);background:rgba(242,92,26,.1)}
+
+/* the signature: animated seal cross-section */
+.seal-art{display:grid;place-items:center}
+.seal-art svg{width:min(380px,80vw);height:auto}
+.ring-spin{transform-origin:center;animation:spin 26s linear infinite}
+.ring-spin-rev{transform-origin:center;animation:spin 38s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2.6rem;flex-wrap:wrap}
+.hero-stats div{border-inline-start:3px solid var(--orange);padding-inline-start:1rem}
+.hero-stats strong{display:block;font-family:var(--font-display);font-size:1.6rem;line-height:1.2}
+.hero-stats span{color:var(--muted-light);font-size:.85rem}
+
+/* ---------- video sections ---------- */
+.video-frame{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:16/7;min-height:280px;
+  background:
+    radial-gradient(ellipse at 30% 20%,rgba(255,178,88,.22),transparent 55%),
+    radial-gradient(ellipse at 75% 85%,rgba(242,92,26,.28),transparent 50%),
+    linear-gradient(120deg,#1A1F26,#262E38 55%,#161A1F);
+  display:grid;place-items:center;
+  border:1px solid var(--line-dark);
+}
+.video-frame::after{
+  content:"";position:absolute;inset:0;opacity:.07;
+  background:repeating-linear-gradient(90deg,transparent 0 60px,#fff 60px 61px);
+}
+.play-btn{
+  position:relative;z-index:2;width:88px;height:88px;border-radius:50%;
+  background:rgba(242,92,26,.95);border:none;display:grid;place-items:center;
+  transition:transform .25s,box-shadow .25s;
+  box-shadow:0 0 0 0 rgba(242,92,26,.45);
+  animation:pulse 2.6s infinite;
+}
+.play-btn:hover{transform:scale(1.08)}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(242,92,26,.45)}
+  70%{box-shadow:0 0 0 26px rgba(242,92,26,0)}
+  100%{box-shadow:0 0 0 0 rgba(242,92,26,0)}
+}
+.play-btn svg{width:30px;height:30px;fill:#fff;margin-inline-start:4px}
+html[dir="rtl"] .play-btn svg{transform:scaleX(-1);margin-inline-start:0;margin-inline-end:4px}
+.video-caption{
+  position:absolute;bottom:0;inset-inline:0;padding:1.2rem 1.6rem;
+  background:linear-gradient(to top,rgba(10,12,14,.85),transparent);
+  color:#E5E9EE;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+}
+.rec-dot{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-display);letter-spacing:.12em;font-size:.8rem;color:var(--amber)}
+.rec-dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* ---------- slider ---------- */
+.slider-section{background:var(--white);border-block:1px solid var(--line)}
+.slider{overflow:hidden;position:relative;margin-top:2.5rem;
+  mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);}
+.slider-track{display:flex;gap:1.2rem;width:max-content;animation:slide 36s linear infinite}
+.slider:hover .slider-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - .6rem))}}
+html[dir="rtl"] @keyframes slide{}
+.slide-card{
+  width:260px;border-radius:var(--radius);overflow:hidden;flex-shrink:0;
+  border:1px solid var(--line);background:var(--paper);
+}
+.slide-img{height:160px;display:grid;place-items:center;color:#fff;position:relative}
+.slide-img svg{width:64px;height:64px;opacity:.9}
+.slide-card p{padding:.9rem 1.1rem;font-weight:600;font-size:.95rem}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.about-text p{margin-bottom:1.1rem;color:#3A424C}
+.dark .about-text p{color:#B9C2CC}
+.about-panel{
+  background:var(--steel);border:1px solid var(--line-dark);border-radius:var(--radius);
+  padding:2rem;color:var(--white);position:sticky;top:96px;
+}
+.about-panel h3{font-size:1.25rem;margin-bottom:1.2rem;color:var(--amber)}
+.spec-row{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px dashed var(--line-dark);font-size:.92rem}
+.spec-row:last-child{border-bottom:none}
+.spec-row span:first-child{color:var(--muted-light)}
+.spec-row span:last-child{font-weight:600}
+.service-list{list-style:none;display:grid;gap:.8rem}
+.service-list li{
+  position:relative;padding-inline-start:1.9rem;font-size:.95rem;color:#D6DCE3;
+  border-bottom:1px dashed var(--line-dark);padding-bottom:.8rem;
+}
+.service-list li:last-child{border-bottom:none;padding-bottom:0}
+.service-list li::before{
+  content:"";position:absolute;inset-inline-start:0;top:.35rem;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--orange);
+  box-shadow:0 0 0 4px rgba(242,92,26,.18);
+}
+.service-list li::after{
+  content:"";position:absolute;inset-inline-start:4px;top:.55rem;
+  width:6px;height:3px;border:2px solid #fff;border-top:none;border-inline-end:none;
+  transform:rotate(-45deg);
+}
+
+/* ---------- categories ---------- */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:1.2rem;margin-top:2.5rem;
+}
+.cat-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.cat-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(20,23,27,.12);border-color:var(--orange)}
+.cat-img{height:130px;display:grid;place-items:center;position:relative;overflow:hidden}
+.cat-img svg{width:58px;height:58px;color:#fff;transition:transform .35s}
+.cat-card:hover .cat-img svg{transform:scale(1.15) rotate(8deg)}
+.cat-body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.9rem;flex:1}
+.cat-body h3{font-size:1.05rem;font-weight:700;flex:1}
+.explore{
+  align-self:flex-start;font-family:var(--font-display);font-weight:600;font-size:.85rem;
+  letter-spacing:.1em;color:var(--orange);background:none;border:none;padding:0;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+html[lang="en"] .explore{text-transform:uppercase}
+.explore svg{width:16px;height:16px;transition:transform .25s}
+html[dir="rtl"] .explore svg{transform:scaleX(-1)}
+.cat-card:hover .explore svg{transform:translateX(4px)}
+html[dir="rtl"] .cat-card:hover .explore svg{transform:scaleX(-1) translateX(4px)}
+
+/* ---------- why us ---------- */
+.why{background:var(--steel);color:var(--white)}
+.why-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+.why-text p{color:#B9C2CC;margin-bottom:1.1rem}
+.why-cards{display:grid;gap:1.1rem}
+.why-card{
+  display:flex;gap:1.2rem;align-items:flex-start;
+  background:rgba(255,255,255,.04);border:1px solid var(--line-dark);
+  border-radius:var(--radius);padding:1.4rem 1.5rem;
+  transition:border-color .25s,background .25s;
+}
+.why-card:hover{border-color:var(--orange);background:rgba(242,92,26,.07)}
+.why-icon{
+  width:52px;height:52px;flex-shrink:0;border-radius:12px;
+  background:linear-gradient(135deg,var(--orange),var(--amber));
+  display:grid;place-items:center;
+}
+.why-icon svg{width:26px;height:26px;color:#fff}
+.why-card h3{font-size:1.1rem;margin-bottom:.25rem}
+.why-card p{color:var(--muted-light);font-size:.93rem;margin:0}
+
+/* ---------- form ---------- */
+.form-section{background:var(--white);border-block:1px solid var(--line)}
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center;margin-top:0}
+.callback-form{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.callback-form .full{grid-column:1/-1}
+.field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:.35rem}
+.field input,.field textarea{
+  width:100%;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:10px;
+  font-family:inherit;font-size:.95rem;background:var(--paper);
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,92,26,.15);background:#fff;
+}
+.field textarea{min-height:120px;resize:vertical}
+.form-note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+.form-success{
+  display:none;grid-column:1/-1;background:#E8F7EE;border:1.5px solid #34A862;color:#1E6B3E;
+  padding:.9rem 1.1rem;border-radius:10px;font-weight:600;font-size:.95rem;
+}
+.form-success.show{display:block}
+
+/* ---------- partners ---------- */
+.partners-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1.2rem;margin-top:2.5rem;
+}
+.partner{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--white);
+  display:grid;place-items:center;padding:2rem 1rem;
+  font-family:var(--font-display);font-weight:700;font-size:1.3rem;letter-spacing:.08em;
+  color:var(--muted);transition:color .25s,border-color .25s,transform .25s;
+}
+.partner:hover{color:var(--ink);border-color:var(--orange);transform:translateY(-4px)}
+.partner b{color:var(--orange)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#B9C2CC;padding:4.5rem 0 0}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:2.5rem;padding-bottom:3rem}
+.footer-grid h4{
+  color:#fff;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.08em;margin-bottom:1.1rem;
+}
+html[lang="en"] .footer-grid h4{text-transform:uppercase}
+.footer-grid ul{list-style:none;display:grid;gap:.6rem;font-size:.93rem}
+.footer-grid a{transition:color .2s}
+.footer-grid a:hover{color:var(--amber)}
+.footer-about p{font-size:.93rem;margin-top:1rem;max-width:300px}
+.footer-contact li{display:flex;gap:.6rem;align-items:flex-start}
+.footer-contact svg{width:17px;height:17px;flex-shrink:0;margin-top:.25rem;color:var(--orange)}
+.footer-bottom{
+  border-top:1px solid var(--line-dark);padding:1.3rem 0;font-size:.85rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted-light);
+}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  .hero-grid,.about-grid,.why-grid,.form-grid{grid-template-columns:1fr}
+  .seal-art{order:-1}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .about-panel{position:static}
+}
+@media(max-width:560px){
+  section{padding:3.8rem 0}
+  .callback-form{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .video-frame{aspect-ratio:16/10}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home" aria-label="MONAK home">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke="#F25C1A" stroke-width="5"/>
+        <circle cx="24" cy="24" r="11" stroke="#FFB258" stroke-width="3.5"/>
+        <circle cx="24" cy="24" r="4" fill="#fff"/>
+      </svg>
+      <span>MO<b>NAK</b></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="#about" data-en="About" data-ar="من نحن">About</a></li>
+      <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+      <li><a href="#downloads" data-en="Downloads" data-ar="التحميلات">Downloads</a></li>
+      <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn" aria-label="Switch language">العربية</button>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 1. HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-en="Industrial Sealing Solutions" data-ar="حلول الإحكام الصناعية">Industrial Sealing Solutions</span>
+      <h1 data-en='MONAK Oil Seals: <em>Your Best Choice!</em>' data-ar='أويل سيل موناك: <em>خيارك الأفضل!</em>'>MONAK Oil Seals: <em>Your Best Choice!</em></h1>
+      <p data-en="Custom Sealing Solutions: Reliability and Expertise for Every Industry."
+         data-ar="حلول إحكام مخصّصة: موثوقية وخبرة لكل قطاع صناعي.">Custom Sealing Solutions: Reliability and Expertise for Every Industry.</p>
+      <a href="#contact" class="btn" data-en="Contact Us Now" data-ar="اتصل بنا الآن">Contact Us Now</a>
+      <div class="hero-stats">
+        <div><strong>18+</strong><span data-en="Product categories" data-ar="فئة من المنتجات">Product categories</span></div>
+        <div><strong>ISO</strong><span data-en="International standards" data-ar="معايير دولية">International standards</span></div>
+        <div><strong>24/7</strong><span data-en="Technical support" data-ar="دعم فني">Technical support</span></div>
+      </div>
+    </div>
+    <div class="seal-art" aria-hidden="true">
+      <!-- Signature: oil-seal cross-section -->
+      <svg viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="185" stroke="#2A313A" stroke-width="2"/>
+        <g class="ring-spin">
+          <circle cx="200" cy="200" r="165" stroke="#F25C1A" stroke-width="10" stroke-dasharray="40 18" stroke-linecap="round"/>
+        </g>
+        <circle cx="200" cy="200" r="132" stroke="#39414C" stroke-width="22"/>
+        <g class="ring-spin-rev">
+          <circle cx="200" cy="200" r="100" stroke="#FFB258" stroke-width="5" stroke-dasharray="8 14" stroke-linecap="round"/>
+        </g>
+        <circle cx="200" cy="200" r="74" stroke="#F25C1A" stroke-width="14"/>
+        <circle cx="200" cy="200" r="46" fill="#1F242B" stroke="#39414C" stroke-width="2"/>
+        <text x="200" y="194" text-anchor="middle" fill="#FFB258" font-family="Saira Condensed,Tajawal,sans-serif" font-size="22" font-weight="700" letter-spacing="2">MONAK</text>
+        <text x="200" y="216" text-anchor="middle" fill="#9AA4B0" font-size="11" letter-spacing="3">OIL SEALS</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. VIDEO 1 ================= -->
+<section class="reveal">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Watch" data-ar="شاهد">Watch</span>
+    <h2 class="section-title" data-en="Precision Engineering in Action" data-ar="الهندسة الدقيقة قيد التنفيذ">Precision Engineering in Action</h2>
+    <p class="section-sub" data-en="A look inside our manufacturing process — from raw compound to finished seal."
+       data-ar="نظرة داخل عملية التصنيع لدينا — من المادة الخام إلى المنتج النهائي.">A look inside our manufacturing process — from raw compound to finished seal.</p>
+    <div class="video-frame" style="margin-top:2.2rem">
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="video-caption">
+        <span class="rec-dot" data-en="Manufacturing Process" data-ar="عملية التصنيع">Manufacturing Process</span>
+        <span data-en="Demo clip — video placeholder" data-ar="مقطع تجريبي — مكان مخصص للفيديو">Demo clip — video placeholder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. SLIDER ================= -->
+<section class="slider-section reveal">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Industries" data-ar="القطاعات">Industries</span>
+    <h2 class="section-title" data-en="Our Products Across Industries" data-ar="منتجاتنا عبر مختلف الصناعات">Our Products Across Industries</h2>
+  </div>
+  <div class="slider" aria-label="Industries slider">
+    <div class="slider-track" id="sliderTrack"><!-- JS fills --></div>
+  </div>
+</section>
+
+<!-- ================= 4. ABOUT ================= -->
+<section id="about" class="reveal">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <span class="eyebrow" data-en="About Us" data-ar="من نحن">About Us</span>
+      <h2 class="section-title" data-en="MONAK Industrial Excellence" data-ar="موناك — التميّز الصناعي">MONAK Industrial Excellence</h2>
+      <p data-en="Monak Industrial and Commercial Services Company is one of the leading companies in the field of hydraulic seals and gaskets of all sizes and dimensions, with extensive experience in providing innovative and highly efficient solutions for various industries."
+         data-ar="شركة موناك للخدمات الصناعية والتجارية هي إحدى الشركات الرائدة في مجال السيلات الهيدروليكية والحشوات بجميع المقاسات والأبعاد، وتمتلك خبرة واسعة في تقديم حلول مبتكرة وعالية الكفاءة لمختلف الصناعات.">Monak Industrial and Commercial Services Company is one of the leading companies in the field of hydraulic seals and gaskets of all sizes and dimensions, with extensive experience in providing innovative and highly efficient solutions for various industries.</p>
+      <p data-en="Monak offers a comprehensive range of products including hydraulic and pneumatic seals, O-rings, oil seals, and industrial gaskets, in addition to rubber products of various types and specifications such as leak preventers, vibration dampers, insulation rings, and anti-vibration couplings."
+         data-ar="تقدّم موناك مجموعة شاملة من المنتجات تشمل السيلات الهيدروليكية والنيوماتيكية وحلقات O-Ring وموانع تسرب الزيت والحشوات الصناعية، إضافة إلى المنتجات المطاطية بمختلف أنواعها ومواصفاتها مثل موانع التسرب ومخمدات الاهتزاز وحلقات العزل ووصلات مقاومة الاهتزاز.">Monak offers a comprehensive range of products including hydraulic and pneumatic seals, O-rings, oil seals, and industrial gaskets, in addition to rubber products of various types and specifications such as leak preventers, vibration dampers, insulation rings, and anti-vibration couplings.</p>
+      <p data-en="Monak proudly serves as an authorized distributor and agent for a number of leading global companies in this field from Turkey, Italy, Germany, the United States, and Taiwan. This enables us to provide high-quality products that meet international standards and fulfill the diverse needs of the industrial market."
+         data-ar="تفتخر موناك بكونها موزعًا ووكيلًا معتمدًا لعدد من الشركات العالمية الرائدة في هذا المجال من تركيا وإيطاليا وألمانيا والولايات المتحدة وتايوان، ما يمكّننا من توفير منتجات عالية الجودة تلبي المعايير الدولية وتغطي الاحتياجات المتنوعة للسوق الصناعي.">Monak proudly serves as an authorized distributor and agent for a number of leading global companies in this field from Turkey, Italy, Germany, the United States, and Taiwan. This enables us to provide high-quality products that meet international standards and fulfill the diverse needs of the industrial market.</p>
+      <p data-en="We are committed to providing advanced and long-lasting sealing solutions that meet industrial market demands without compromising on quality and reliability. We place customer satisfaction at the core of our priorities by offering customized products that meet their requirements, enhance the efficiency of their industrial systems, and reduce maintenance costs."
+         data-ar="نلتزم بتقديم حلول إحكام متطورة وطويلة الأمد تلبي متطلبات السوق الصناعي دون المساومة على الجودة والموثوقية. ونضع رضا العملاء في صميم أولوياتنا من خلال تقديم منتجات مخصّصة تلبي متطلباتهم، وترفع كفاءة أنظمتهم الصناعية، وتخفض تكاليف الصيانة.">We are committed to providing advanced and long-lasting sealing solutions that meet industrial market demands without compromising on quality and reliability. We place customer satisfaction at the core of our priorities by offering customized products that meet their requirements, enhance the efficiency of their industrial systems, and reduce maintenance costs.</p>
+      <p data-en="Through our vision of continuous development and innovation, Monak strives to strengthen its leading position and expand its services to include more partnerships and successes at both local and regional levels."
+         data-ar="ومن خلال رؤيتنا القائمة على التطوير والابتكار المستمرين، تسعى موناك إلى تعزيز مكانتها الريادية وتوسيع خدماتها لتشمل مزيدًا من الشراكات والنجاحات على المستويين المحلي والإقليمي.">Through our vision of continuous development and innovation, Monak strives to strengthen its leading position and expand its services to include more partnerships and successes at both local and regional levels.</p>
+    </div>
+    <aside class="about-panel">
+      <h3 data-en="Monak Company Services" data-ar="خدمات شركة موناك">Monak Company Services</h3>
+      <ul class="service-list">
+        <li data-en="Hydraulic and pneumatic sealing solutions." data-ar="حلول إحكام هيدروليكية ونيوماتيكية.">Hydraulic and pneumatic sealing solutions.</li>
+        <li data-en="Supply of seals and O-rings." data-ar="توريد السيلات وحلقات O-Ring.">Supply of seals and O-rings.</li>
+        <li data-en="Rubber products and vibration control components." data-ar="منتجات مطاطية ومكوّنات التحكم بالاهتزاز.">Rubber products and vibration control components.</li>
+        <li data-en="Authorized distributor for global brands." data-ar="موزع معتمد لعلامات تجارية عالمية.">Authorized distributor for global brands.</li>
+        <li data-en="High-quality, international-standard products." data-ar="منتجات عالية الجودة وفق المعايير الدولية.">High-quality, international-standard products.</li>
+        <li data-en="Safe and on-time delivery." data-ar="توصيل آمن وفي الوقت المحدد.">Safe and on-time delivery.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 5. VIDEO 2 ================= -->
+<section class="dark reveal">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Watch" data-ar="شاهد">Watch</span>
+    <h2 class="section-title" data-en="Technical Expertise &amp; Innovation" data-ar="الخبرة التقنية والابتكار">Technical Expertise &amp; Innovation</h2>
+    <div class="video-frame" style="margin-top:2.2rem">
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="video-caption">
+        <span class="rec-dot" data-en="Engineering Lab" data-ar="مختبر الهندسة">Engineering Lab</span>
+        <span data-en="Demo clip — video placeholder" data-ar="مقطع تجريبي — مكان مخصص للفيديو">Demo clip — video placeholder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. CATEGORIES ================= -->
+<section id="products" class="reveal">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Catalog" data-ar="الكتالوج">Catalog</span>
+    <h2 class="section-title" data-en="Products Categories" data-ar="فئات المنتجات">Products Categories</h2>
+    <p class="section-sub" data-en="18 specialized categories covering hydraulic, pneumatic, rotary and static sealing."
+       data-ar="18 فئة متخصصة تغطي الإحكام الهيدروليكي والنيوماتيكي والدوّار والثابت.">18 specialized categories covering hydraulic, pneumatic, rotary and static sealing.</p>
+    <div class="cat-grid" id="catGrid"><!-- JS fills --></div>
+  </div>
+</section>
+
+<!-- ================= 7. WHY CHOOSE US ================= -->
+<section class="why reveal">
+  <div class="wrap why-grid">
+    <div class="why-text">
+      <span class="eyebrow" data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</span>
+      <h2 class="section-title" data-en="Expertise, Quality &amp; Innovation" data-ar="خبرة وجودة وابتكار">Expertise, Quality &amp; Innovation</h2>
+      <p data-en="At Monak, we combine expertise, quality, and innovation to deliver comprehensive solutions in hydraulic and industrial sealing systems. As an authorized distributor for leading global brands, we provide products that meet international standards and ensure high efficiency and durability."
+         data-ar="في موناك، نجمع بين الخبرة والجودة والابتكار لتقديم حلول شاملة في أنظمة الإحكام الهيدروليكية والصناعية. وبصفتنا موزعًا معتمدًا لعلامات عالمية رائدة، نوفّر منتجات تلبي المعايير الدولية وتضمن كفاءة ومتانة عاليتين.">At Monak, we combine expertise, quality, and innovation to deliver comprehensive solutions in hydraulic and industrial sealing systems. As an authorized distributor for leading global brands, we provide products that meet international standards and ensure high efficiency and durability.</p>
+      <p data-en="Customer satisfaction is our top priority — we offer customized solutions that meet your needs, reduce maintenance costs, and enhance the performance of your industrial systems."
+         data-ar="رضا العملاء هو أولويتنا القصوى — نقدّم حلولًا مخصّصة تلبي احتياجاتكم، وتخفض تكاليف الصيانة، وترفع أداء أنظمتكم الصناعية.">Customer satisfaction is our top priority — we offer customized solutions that meet your needs, reduce maintenance costs, and enhance the performance of your industrial systems.</p>
+    </div>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l2-5.2a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.4-8.5 8.38 8.38 0 0 1 8.5 8z"/></svg></div>
+        <div>
+          <h3 data-en="Easy Communication" data-ar="تواصل سهل">Easy Communication</h3>
+          <p data-en="We make communication simple and efficient. Our team is always ready to respond quickly, understand your needs, and provide the right solutions without delay."
+             data-ar="نجعل التواصل بسيطًا وفعالًا. فريقنا جاهز دائمًا للاستجابة بسرعة، وفهم احتياجاتكم، وتقديم الحلول المناسبة دون تأخير.">We make communication simple and efficient. Our team is always ready to respond quickly, understand your needs, and provide the right solutions without delay.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div>
+          <h3 data-en="Reliable Service" data-ar="خدمة موثوقة">Reliable Service</h3>
+          <p data-en="With years of proven expertise and strong global partnerships, we guarantee top-quality sealing products that deliver lasting performance and unmatched reliability."
+             data-ar="بسنوات من الخبرة المثبتة وشراكات عالمية قوية، نضمن منتجات إحكام عالية الجودة تقدّم أداءً دائمًا وموثوقية لا تُضاهى.">With years of proven expertise and strong global partnerships, we guarantee top-quality sealing products that deliver lasting performance and unmatched reliability.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div>
+          <h3 data-en="Safe Delivery" data-ar="توصيل آمن">Safe Delivery</h3>
+          <p data-en="Your products arrive safely and on time. We ensure secure packaging and fast delivery to maintain product integrity and your full satisfaction."
+             data-ar="تصل منتجاتكم بأمان وفي الوقت المحدد. نضمن تغليفًا آمنًا وتوصيلًا سريعًا للحفاظ على سلامة المنتجات ورضاكم التام.">Your products arrive safely and on time. We ensure secure packaging and fast delivery to maintain product integrity and your full satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. CALL BACK FORM ================= -->
+<section class="form-section reveal" id="contact">
+  <div class="wrap form-grid">
+    <div>
+      <span class="eyebrow" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</span>
+      <h2 class="section-title" data-en="Request Call Back" data-ar="اطلب مكالمة هاتفية">Request Call Back</h2>
+      <p class="section-sub" data-en="Leave your details and our technical team will call you back within one business day."
+         data-ar="اترك بياناتك وسيتواصل معك فريقنا الفني خلال يوم عمل واحد.">Leave your details and our technical team will call you back within one business day.</p>
+    </div>
+    <form class="callback-form" id="callbackForm" novalidate>
+      <div class="field">
+        <label for="fName" data-en="Name" data-ar="الاسم">Name</label>
+        <input id="fName" type="text" required data-ph-en="Your full name" data-ph-ar="اسمك الكامل" placeholder="Your full name">
+      </div>
+      <div class="field">
+        <label for="fEmail" data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+        <input id="fEmail" type="email" required data-ph-en="name@company.com" data-ph-ar="name@company.com" placeholder="name@company.com">
+      </div>
+      <div class="field full">
+        <label for="fPhone" data-en="Contact Number" data-ar="رقم الهاتف">Contact Number</label>
+        <input id="fPhone" type="tel" required data-ph-en="+90 5xx xxx xx xx" data-ph-ar="+90 5xx xxx xx xx" placeholder="+90 5xx xxx xx xx">
+      </div>
+      <div class="field full">
+        <label for="fMsg" data-en="Your Message" data-ar="رسالتك">Your Message</label>
+        <textarea id="fMsg" data-ph-en="Tell us about the seals or parts you need…" data-ph-ar="أخبرنا عن السيلات أو القطع التي تحتاجها…" placeholder="Tell us about the seals or parts you need…"></textarea>
+      </div>
+      <div class="form-success" id="formSuccess" data-en="✓ Request sent. We will call you back soon!" data-ar="✓ تم إرسال الطلب. سنتواصل معك قريبًا!">✓ Request sent. We will call you back soon!</div>
+      <button type="submit" class="btn full" data-en="Send Request" data-ar="إرسال الطلب">Send Request</button>
+      <p class="form-note full" data-en="Demo form — no data is actually sent." data-ar="نموذج تجريبي — لا يتم إرسال أي بيانات فعليًا.">Demo form — no data is actually sent.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= 9. VIDEO 3 ================= -->
+<section class="dark reveal">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Watch" data-ar="شاهد">Watch</span>
+    <h2 class="section-title" data-en="Reliable Products" data-ar="منتجات موثوقة">Reliable Products</h2>
+    <div class="video-frame" style="margin-top:2.2rem">
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="video-caption">
+        <span class="rec-dot" data-en="Field Performance" data-ar="الأداء الميداني">Field Performance</span>
+        <a href="#products" class="btn ghost" style="padding:.55rem 1.4rem;font-size:.9rem" data-en="Browse Products" data-ar="تصفح المنتجات">Browse Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. PARTNERS ================= -->
+<section class="reveal" id="downloads">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Our Partners" data-ar="شركاؤنا">Our Partners</span>
+    <h2 class="section-title" data-en="Trusted Industry Leaders" data-ar="شركاء موثوقون ورواد في الصناعة">Trusted Industry Leaders</h2>
+    <div class="partners-grid">
+      <div class="partner">FMS</div>
+      <div class="partner">HALL<b>ITE</b></div>
+      <div class="partner">SMART<b>SEAL</b></div>
+      <div class="partner">HYDRO<b>TECH</b></div>
+      <div class="partner">SEAL<b>PRO</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 11. FOOTER ================= -->
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <a class="logo" href="#home" style="color:#fff">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" style="width:34px;height:34px">
+          <circle cx="24" cy="24" r="20" stroke="#F25C1A" stroke-width="5"/>
+          <circle cx="24" cy="24" r="11" stroke="#FFB258" stroke-width="3.5"/>
+          <circle cx="24" cy="24" r="4" fill="#fff"/>
+        </svg>
+        <span>MO<b>NAK</b></span>
+      </a>
+      <p data-en="High-performance sealing solutions for hydraulic, pneumatic and industrial systems. Authorized distributor for leading global brands."
+         data-ar="حلول إحكام عالية الأداء للأنظمة الهيدروليكية والنيوماتيكية والصناعية. موزع معتمد لعلامات تجارية عالمية رائدة.">High-performance sealing solutions for hydraulic, pneumatic and industrial systems. Authorized distributor for leading global brands.</p>
+    </div>
+    <div>
+      <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+      <ul>
+        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#about" data-en="About" data-ar="من نحن">About</a></li>
+        <li><a href="#products" data-en="Products" data-ar="المنتجات">Products</a></li>
+        <li><a href="#downloads" data-en="Downloads" data-ar="التحميلات">Downloads</a></li>
+        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-en="Product Categories" data-ar="فئات المنتجات">Product Categories</h4>
+      <ul>
+        <li><a href="#products" data-en="Hydraulic Seals" data-ar="السيلات الهيدروليكية">Hydraulic Seals</a></li>
+        <li><a href="#products" data-en="Pneumatic Seals" data-ar="السيلات النيوماتيكية">Pneumatic Seals</a></li>
+        <li><a href="#products" data-en="Oil Seals & O-rings" data-ar="أويل سيل وحلقات O-Ring">Oil Seals &amp; O-rings</a></li>
+        <li><a href="#products" data-en="Rotary & Static Seals" data-ar="السيلات الدوّارة والثابتة">Rotary &amp; Static Seals</a></li>
+        <li><a href="#products" data-en="Mill Spare Parts" data-ar="قطع غيار المطاحن">Mill Spare Parts</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-en="Contact" data-ar="اتصل بنا">Contact</h4>
+      <ul class="footer-contact">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-en="Industrial Zone, Konya, Türkiye" data-ar="المنطقة الصناعية، قونيا، تركيا">Industrial Zone, Konya, Türkiye</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span dir="ltr">+90 555 000 00 00</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span dir="ltr">info@monak-seals.com</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span data-en="© 2026 MONAK Oil Seals — Demo website." data-ar="© 2026 موناك أويل سيل — موقع تجريبي.">© 2026 MONAK Oil Seals — Demo website.</span>
+    <span data-en="Built for demonstration purposes." data-ar="تم إنشاؤه لأغراض العرض التجريبي.">Built for demonstration purposes.</span>
+  </div>
+</footer>
+
+<script>
+/* ============ Data ============ */
+const categories=[
+  {en:"Mill Spare Parts Materials",ar:"مواد قطع غيار المطاحن"},
+  {en:"FMS",ar:"FMS"},
+  {en:"Hallite",ar:"Hallite"},
+  {en:"Hydraulic Rod Seals",ar:"سيلات هيدروليكية للأعمدة"},
+  {en:"Hydraulic Materials",ar:"مواد هيدروليكية"},
+  {en:"Hydraulic Piston Seals",ar:"سيلات هيدروليكية للمكابس"},
+  {en:"Hydraulic Guiding Elements",ar:"عناصر توجيه هيدروليكية"},
+  {en:"Hydraulic Piston-Rod Seals",ar:"سيلات هيدروليكية للمكبس والعمود"},
+  {en:"Winged Conveyor Belt",ar:"سير ناقل مجنّح"},
+  {en:"Oil Seals",ar:"موانع تسرب الزيت (أويل سيل)"},
+  {en:"O-rings",ar:"حلقات O-Ring"},
+  {en:"Other Sealing Elements",ar:"عناصر إحكام أخرى"},
+  {en:"Pneumatic Piston Seals",ar:"سيلات نيوماتيكية للمكابس"},
+  {en:"Pneumatic Rod Seals",ar:"سيلات نيوماتيكية للأعمدة"},
+  {en:"Rotary Seals",ar:"سيلات دوّارة"},
+  {en:"SmartSeal",ar:"SmartSeal"},
+  {en:"Static Sealing Elements",ar:"عناصر إحكام ثابتة"},
+  {en:"Wipers",ar:"ممسحات (وايبرز)"}
+];
+const industries=[
+  {en:"Hydraulic Systems",ar:"الأنظمة الهيدروليكية"},
+  {en:"Agriculture Machinery",ar:"الآلات الزراعية"},
+  {en:"Flour & Feed Mills",ar:"مطاحن الدقيق والأعلاف"},
+  {en:"Construction Equipment",ar:"معدات البناء"},
+  {en:"Automotive",ar:"قطاع السيارات"},
+  {en:"Oil & Gas",ar:"النفط والغاز"},
+  {en:"Food Processing",ar:"الصناعات الغذائية"},
+  {en:"Marine & Heavy Industry",ar:"الصناعات البحرية والثقيلة"}
+];
+const heroPalettes=[
+  "linear-gradient(135deg,#1F242B,#39414C)",
+  "linear-gradient(135deg,#2B2017,#5A3A1E)",
+  "linear-gradient(135deg,#1A2630,#2E4A5C)",
+  "linear-gradient(135deg,#26201A,#4C3A2A)",
+  "linear-gradient(135deg,#20262E,#3D4856)",
+  "linear-gradient(135deg,#241C16,#54381F)"
+];
+const sealIcon=`<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5">
+  <circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>`;
+const arrowIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+
+/* ============ Build categories grid ============ */
+const catGrid=document.getElementById("catGrid");
+categories.forEach((c,i)=>{
+  const card=document.createElement("article");
+  card.className="cat-card";
+  card.innerHTML=`
+    <div class="cat-img" style="background:${heroPalettes[i%heroPalettes.length]}">${sealIcon}</div>
+    <div class="cat-body">
+      <h3 data-en="${c.en}" data-ar="${c.ar}">${c.en}</h3>
+      <button class="explore" data-en="Explore" data-ar="استكشف">Explore ${arrowIcon}</button>
+    </div>`;
+  catGrid.appendChild(card);
+});
+
+/* ============ Build industries slider (duplicated for seamless loop) ============ */
+const track=document.getElementById("sliderTrack");
+const slides=[...industries,...industries];
+slides.forEach((s,i)=>{
+  const el=document.createElement("div");
+  el.className="slide-card";
+  el.innerHTML=`
+    <div class="slide-img" style="background:${heroPalettes[i%heroPalettes.length]}">${sealIcon}</div>
+    <p data-en="${s.en}" data-ar="${s.ar}">${s.en}</p>`;
+  track.appendChild(el);
+});
+
+/* ============ Language switching ============ */
+let lang="en";
+const langBtn=document.getElementById("langBtn");
+function applyLang(){
+  const html=document.documentElement;
+  html.lang=lang;
+  html.dir=lang==="ar"?"rtl":"ltr";
+  langBtn.textContent=lang==="ar"?"English":"العربية";
+  document.title=lang==="ar"
+    ? "موناك أويل سيل — حلول إحكام مخصّصة"
+    : "MONAK Oil Seals — Custom Sealing Solutions";
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    const txt=el.dataset[lang];
+    if(txt===undefined)return;
+    if(el.classList.contains("explore")){
+      el.innerHTML=`${txt} ${arrowIcon}`;
+    }else if(txt.includes("<")){
+      el.innerHTML=txt;
+    }else{
+      el.textContent=txt;
+    }
+  });
+  document.querySelectorAll("[data-ph-en]").forEach(el=>{
+    el.placeholder=lang==="ar"?el.dataset.phAr:el.dataset.phEn;
+  });
+}
+langBtn.addEventListener("click",()=>{
+  lang=lang==="en"?"ar":"en";
+  applyLang();
+});
+
+/* ============ Mobile menu ============ */
+const burger=document.getElementById("burger");
+const navLinks=document.getElementById("navLinks");
+burger.addEventListener("click",()=>{
+  const open=navLinks.classList.toggle("open");
+  burger.setAttribute("aria-expanded",open);
+});
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
+
+/* ============ Reveal on scroll ============ */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* ============ Demo form ============ */
+document.getElementById("callbackForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const form=e.target;
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  document.getElementById("formSuccess").classList.add("show");
+  form.reset();
+  setTimeout(()=>document.getElementById("formSuccess").classList.remove("show"),5000);
+});
+
+/* ============ Demo video buttons ============ */
+document.querySelectorAll(".play-btn").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    alert(lang==="ar"
+      ? "موقع تجريبي: هنا يتم تشغيل مقطع الفيديو الفعلي."
+      : "Demo site: the real video clip plays here.");
+  });
+});
+</script>
+</body>
+</html>
